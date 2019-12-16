@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-input placeholder=" Enter the singer u need to search"></ion-input>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item-group *ngFor="let group of dataService.groupSongs">
+      <ion-item-divider class="light">{{group.letter}}</ion-item-divider>
+    <ion-item lines="inset" button [routerLink]="['detail']" *ngFor="let s of group.song">
+      <ion-label>{{s.Name}}</ion-label>
+    </ion-item>
+  </ion-item-group>
+  </ion-list>
+</ion-content>
