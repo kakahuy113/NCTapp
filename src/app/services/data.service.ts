@@ -4,73 +4,53 @@ export interface Sing {
   Id: string;
   Name: string;
   Singer: string;
+  content: string;
   image: string;
 }
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private sings: Sing[] = [
-    {
-      "Id": "1412145502",
-      "Name": "Cách Biệt",
-      "Singer": "Đặng Thế Luân",
-      "image": "dangtheluan.jpg"
-     },
+  private sings = [
     {
         "Id": "1412134502",
         "Name": "Anh Còn Nợ Em",
         "Singer": "Quang Dũng",
-        "image": "quangdung.jpg"
+        "content":`Anh còn nợ em, Công viên ghế đá,Công viên ghế đá, Lá đổ chiều mưa`,
+        "image": "./assets/images/quangdung.jpeg"
     },
     {
         "Id": "1412134520",
-        "Name": "Anh Het Nợ Em",
-        "Singer": "Quang Dũng",
-        "image": "quangdung.jpg"
+        "Name": "Sóng gió",
+        "Singer": "Jack_KTM",
+        "content":"Hồng trần trên đôi cánh tay,Họa đời em trong phút giây,Từ ngày thơ ấy còn ngủ mơ đến khi em thờ ơ,Lòng người anh đâu có hay,Một ngày khi vỗ cánh bay,Từ người yêu hóa thành người dưng đến khi ta tự xưng à,Thương em bờ vai nhỏ nhoi,Đôi mắt hóa mây đêm,Thương sao mùi dạ lý hương,Vương vấn mãi bên thềm,Đời phiêu du cố tìm một người thật lòng,Dẫu trời mênh mông anh nhớ em,Chim kia về vẫn có đôi,Sao chẳng số phu thê?,Em ơi đừng xa cách tôi,Trăng cố níu em về,Bình yên trên mái nhà,Nhìn đời ngược dòng,Em còn bên anh có phải không?,Trời ban ánh sáng, năm tháng tư bề",
+        "image": "./assets/images/quangdung.jpeg"
     },
+    {
+        "Id": "1412145502",
+        "Name": "Cách Biệt",
+        "Singer": "Đặng Thế Luân",
+        "content":"Anh còn nợ em, Công viên ghế đá,Công viên ghế đá, Lá đổ chiều mưa",
+        "image": "./assets/images/dangtheluan.jpeg"
+    },   
     {
         "Id": "1412144501",
         "Name": "Gặp Nhau Trong Rùng Mơ",
         "Singer": "Trọng Tấn, Tân Nhàn",
-        "image": "trongtan.jpg"
+        "content":"Anh còn nợ em,Công viên ghế đá, Công viên ghế đá, Lá đổ chiều mưa",
+        "image": "./assets/images/trongtan.jpeg"
     },
     {
         "Id": "1412143332",
         "Name": "Đáp Mộ Cuộc Tình",
         "Singer": "Đan Nguyên",
-        "image": "dangnguyen.jpg"
+        "content":"Anh còn nợ em, Công viên ghế đá, Công viên ghế đá, Lá đổ chiều mưa",
+        "image": "./assets/images/dannguyen.jpeg"
     }
 ];
-groupSongs = [];
+
   constructor() {
-    this.ABCXYZ(this.sings);
    }
-   ABCXYZ(song) {
-    const sortedSongs = this.sings.sort( (a, b) => {
-      if (a.Name > b.Name) {return 1; }
-      if (a.Name < b.Name) { return -1; }
-      return 0;
-    });
-    let currentLetter = '';
-    let currentSongs = [];
-
-    sortedSongs.forEach((value , index) => {
-      if (value.Name.charAt(0) !== currentLetter) {
-        currentLetter = value.Name.charAt(0);
-
-        const newGroup = {
-          letter: currentLetter,
-          song: []
-        };
-
-        currentSongs = newGroup.song;
-        this.groupSongs.push(newGroup);
-      }
-
-      currentSongs.push(value);
-    });
-  }
   getSongs() {
     return [...this.sings];
   }

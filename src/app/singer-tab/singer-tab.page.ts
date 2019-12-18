@@ -10,7 +10,7 @@ export class SingerTabPage implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.sings = this.dataService.getSongs()
+    this.sings = this.dataService.getSongs();
   }
 
 }
