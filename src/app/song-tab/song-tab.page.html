@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-input placeholder=" Enter the singer u need to search"></ion-input>
+    <ion-searchbar [(ngModel)]="searchText" (ionChange)="searchSong($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list line="full" *ngIf="search">
+    <ion-item *ngFor="let song of songs" [routerLink]="['detail/' , song.Id]" (click)="change()">
+      <ion-label>{{song.Name}}</ion-label>
+    </ion-item>
+  </ion-list>
+   <ion-list line="full" *ngIf="!search">
     <ion-item-group *ngFor="let group of groupSongs">
-      <ion-item-divider color="medium">{{group.letter}}</ion-item-divider>
-    <ion-item *ngFor="let s of group.song" lines="inset" button [routerLink]="['detail/' , s.Id] " >
+      <ion-item-divider color="light">{{group.letter}}</ion-item-divider>
+    <ion-item *ngFor="let s of group.song"  lines="inset" button [routerLink]="['detail/' , s.Id] " >
       <ion-label>{{s.Name}}</ion-label>
     </ion-item>
   </ion-item-group>
+   </ion-list>
 </ion-content>

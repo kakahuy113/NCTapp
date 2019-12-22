@@ -7,14 +7,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  detailSong: Sing;
+  detail: Sing;
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
-
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      this.detailSong =  this.dataService.getSong(id);
+      this.detail =  this.dataService.getSong(id);
+      
     });
   }
+ 
 
 }

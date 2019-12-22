@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SingerTabPageRoutingModule } from './singer-tab-routing.module';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { SingerTabPage } from './singer-tab.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { SingerTabPage } from './singer-tab.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SingerTabPageRoutingModule
+    SingerTabPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [SingerTabPage]
 })

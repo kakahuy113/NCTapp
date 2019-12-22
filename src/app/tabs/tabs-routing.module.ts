@@ -8,13 +8,13 @@ import { IonicModule } from '@ionic/angular';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
-  {path: '' , redirectTo: 'tabs/song' , pathMatch: 'full'},
+  {path: '' , redirectTo: 'tabs/songs' , pathMatch: 'full'},
   {
     path: 'tabs',
     component: TabsPage,
     children: [
       {
-        path: 'song',
+        path: 'songs',
         children: [
         {
           path: '',
@@ -27,8 +27,18 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'singer',
-        loadChildren: () => import('../singer-tab/singer-tab.module').then( m => m.SingerTabPageModule)
+        path: 'singers',
+        children: [
+         {
+          path: '',
+          loadChildren: () => import('../singer-tab/singer-tab.module').then( m => m.SingerTabPageModule)
+         },
+         {
+           path: 'detail/:id',
+           loadChildren: () => import('../detail/detail.module').then( m => m.DetailPageModule)
+         }
+        ]
+        
       },
      
     ]
