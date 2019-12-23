@@ -48,10 +48,17 @@ export class SongTabPage implements OnInit {
   }
 
   change() {
+    this.search = true
+    if(this.searchText=== '') {
+      this.search = false
+    }
+  }
+  change2() {
+    this.searchText= '';
     this.search = false;
   }
 
-  searchSong(song) {
+  /* searchSong(song) {
     this.search = true;
 
     const val = song.target.value
@@ -65,5 +72,5 @@ export class SongTabPage implements OnInit {
       this.search = false
       this.songs = this.dataService.getSongs();
     }
-  }
-}
+  } */
+} 

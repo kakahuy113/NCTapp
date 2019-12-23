@@ -1,12 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-searchbar [(ngModel)]="searchText" (ionChange)="searchSinger($event)"></ion-searchbar>
+    <ion-title ><h1>Music</h1></ion-title>
   </ion-toolbar>
+  <ion-searchbar [(ngModel)]="searchText" (ionChange)="change()"></ion-searchbar>
 </ion-header>
 
-<ion-content>
+<ion-content> 
   <ion-list *ngIf="search" line="full" >
-    <ion-item *ngFor="let sing of sings" [routerLink]="['detail/' , sing.Id]" (click)="change()">
+    <ion-item *ngFor="let sing of sings | filter:searchText" [routerLink]="['detail/' , sing.Id]" (click)="change2()">
       <ion-thumbnail>
         <img [src]="sing.image" alt="">
       </ion-thumbnail>

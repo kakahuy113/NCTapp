@@ -1,12 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-searchbar [(ngModel)]="searchText" (ionChange)="searchSong($event)"></ion-searchbar>
+   <!--  <h1>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/songs"></ion-back-button>
+      </ion-buttons>
+    </h1> -->
+   <ion-title class="text-center"><h1>Music</h1></ion-title>
   </ion-toolbar>
+  <ion-searchbar [(ngModel)]="searchText" (ionChange)="change()"></ion-searchbar>
 </ion-header>
 
 <ion-content>
   <ion-list line="full" *ngIf="search">
-    <ion-item *ngFor="let song of songs" [routerLink]="['detail/' , song.Id]" (click)="change()">
+    <ion-item *ngFor="let song of songs | filter:searchText" [routerLink]="['detail/' , song.Id]" (click)="change2()">
       <ion-label>{{song.Name}}</ion-label>
     </ion-item>
   </ion-list>

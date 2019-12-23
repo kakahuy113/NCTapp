@@ -28,6 +28,10 @@ export class SingerTabPage implements OnInit {
       this.search = false
     }
   }
+  change2() {
+    this.searchText= '';
+    this.search = false;
+  }
   
   sortSinger(song) {
 
@@ -63,7 +67,7 @@ export class SingerTabPage implements OnInit {
     });
   }
   
-  searchSinger(singer) {
+  /* searchSinger(singer) {
     this.search = true;
     var val = singer.target.value;
 
@@ -76,5 +80,5 @@ export class SingerTabPage implements OnInit {
       this.search = false;
       this.sings = this.dataService.getSongs();
     }
-  }
+  } */
 }

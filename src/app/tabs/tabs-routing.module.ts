@@ -38,9 +38,20 @@ const routes: Routes = [
            loadChildren: () => import('../detail/detail.module').then( m => m.DetailPageModule)
          }
         ]
-        
       },
-     
+     {
+       path: 'films',
+       children: [
+        {
+          path: '',
+          loadChildren: () => import('../films/films.module').then( m => m.FilmsPageModule)
+        },
+        {
+          path: 'detailfilm/:id',
+          loadChildren: () => import('../detailfilm/detailfilm.module').then( m => m.DetailfilmPageModule)
+        },
+       ]
+     }
     ]
   }
 ];

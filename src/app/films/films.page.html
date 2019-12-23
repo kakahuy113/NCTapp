@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><h1>Film</h1></ion-title>
+  </ion-toolbar>
+  <ion-searchbar [(ngModel)]="searchText" name="filter"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-list line="full">
+    <ion-item *ngFor="let film of listFilms | filter:searchText" (click)="get(film.url)">
+      
+      <ion-label>{{film.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
