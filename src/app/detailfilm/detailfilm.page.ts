@@ -15,7 +15,6 @@ export class DetailfilmPage implements OnInit {
       let id = params.get('id');
       this.film = this.getFilm(id).subscribe(data => {
         this.film = data;
-        console.log(this.film);
         
       });
       
